@@ -1,0 +1,15 @@
+<form #formInfo = "ngForm" [formGroup] = "newTask" (ngSubmit)="addTask(); formInfo.reset()">
+   
+    <input type= "text" placeholder="Enter task" formControlName="description"><br>
+    <input type= "date" placeholder="Date" formControlName="date">
+    
+    <select formControlName="member">
+      <option *ngFor="let m of mama" [value]="m._id">{{m.name}}</option>
+      <option *ngFor="let p of papa" [value]="p._id">{{p.name}}</option>
+      <option *ngFor="let y of ya" [value]="y._id">{{y.name}}</option>
+    </select><br>
+    
+    <button type = "submit" value = "Add New Task" [disabled]="!newTask.valid">Submit</button>
+    
+    </form>
+    
